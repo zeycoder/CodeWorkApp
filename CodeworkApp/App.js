@@ -12,8 +12,6 @@ export default function App() {
   const Tab = createBottomTabNavigator();
   const Stack = createStackNavigator();
 
-  const [isFavorite, setIsFavorite] = useState(false);
-
   const JobsNavigator = () => {
     return (
       <Stack.Navigator screenOptions={{headerShown:true}}>
@@ -27,8 +25,8 @@ export default function App() {
     <UserProvider>
       <NavigationContainer >
         <Tab.Navigator screenOptions={{ headerShown: false }}>
-          <Tab.Screen options={{tabBarLabel:'Jobs', tabBarIcon:()=>(<FontAwesome5 name={'bookmark'} solid={isFavorite} size={22}/>)}} name="JobsNavigatorScreen" component={JobsNavigator} />
-          <Tab.Screen options={{tabBarLabel:'Favorites', tabBarIcon:()=>(<FontAwesome5 name={'heart'} solid={isFavorite} size={22} />)}} name="FavoriteJobsScreen" component={FavoriteJobs} />
+          <Tab.Screen options={{tabBarLabel:'Jobs', tabBarIcon:()=>(<FontAwesome5 name={'bookmark'} size={22}/>)}} name="JobsNavigatorScreen" component={JobsNavigator} />
+          <Tab.Screen options={{tabBarLabel:'Favorites', tabBarIcon:()=>(<FontAwesome5 name={'heart'} size={22} />)}} name="FavoriteJobsScreen" component={FavoriteJobs} />
         </Tab.Navigator>
       </NavigationContainer>
     </UserProvider>
