@@ -10,7 +10,7 @@ const Jobs = ({navigation}) => {
   const{datas, loading, error}= useFetch(apiUrl)
   if(loading){return<Loading />}
   if(error){return<Error/>}
-  
+  console.log(datas.data.results)
   const handleJobsDetail = (item) => {navigation.navigate('JobsDetailScreen',{item:item});console.log(item.id);}
   const handleJobs = ({item})=>(<JobsCard jobs={item} onPress={()=>handleJobsDetail(item)}/> )
   
