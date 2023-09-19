@@ -1,16 +1,16 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import FavoriteJobsCard from '../../components/Card/FavoriteJobsCard/FavoriteJobsCard';
 
 const FavoriteJobs = () => {
   const favoriteJobsList = useSelector(s => s.favoriteJobList); 
-  return (
-    <View>
-      <FlatList  keyExtractor={item => item.id} data={favoriteJobsList} renderItem={({item})=><Text>{item.id}</Text>} />
-    </View>
-  )
+  const dispatch = useDispatch();
+  const handleFavoriteJobsRemove = (item) => {
+    dispatch({ type: 'REMOVE_JOB', payload: { favoriteJob: item } });
+  }
+  const handleFavoriteJobs = ({item})=><FavoriteJobsCard item={item} onPress={()=>handleFavoriteJobsRemove(item)}/>
+
+  return (<FlatList  keyExtractor={item => item.id} data={favoriteJobsList} renderItem={handleFavoriteJobs} />)
 }
-
 export default FavoriteJobs;
-
-const styles = StyleSheet.create({})

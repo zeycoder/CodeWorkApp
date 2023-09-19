@@ -6,29 +6,7 @@ import Buttons from '../../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-const JobsCardDetail = ({item}) => {
-  // const insideIcon = useSelector(s=>s.insideIcon)
-  const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(false); // Favori durumu
-  const favoriteJobs = useSelector(state => state.favoriteJobList);
-
-  useEffect(() => {
-    // İş favori işler listesinde var mı kontrol et
-    const isJobFavorite = favoriteJobs.some(job => job.id === item.id);
-    setIsFavorite(isJobFavorite);
-  }, [favoriteJobs, item]);
-
-  const handleFavoriteJob = () => {
-    if (isFavorite) {
-      dispatch({ type: 'REMOVE_JOB', payload: { favoriteJob: item } });
-    } else {
-      dispatch({ type: 'ADD_JOB', payload: { favoriteJob: item } });
-      console.log(item)
-      console.log(item.id)
-
-    }
-    setIsFavorite(!isFavorite);
-  }
+const JobsCardDetail = ({item , favoriteOnPress, favoriteTitle}) => {
   return (
     <View style={styles.container}>
       <ScrollView  style={styles.inner_container}>
@@ -45,7 +23,7 @@ const JobsCardDetail = ({item}) => {
       </ScrollView>
       <View style={styles.btn}>
         <Buttons title='Submit' onPress={()=>Linking.openURL(item.refs.landing_page)} iconName={'sign-in-alt'}/>
-        <Buttons title={isFavorite ? 'Remove Job' : 'Favorite Job'}  onPress={handleFavoriteJob} iconName={'heart'} />
+        <Buttons title={favoriteTitle}  onPress={favoriteOnPress} iconName={'heart'} />
       </View>
     </View>
   )
