@@ -1,12 +1,12 @@
-export const ADD_FAVORITE_JOB = 'ADD_FAVORITE_JOB';
-export const REMOVE_FAVORITE_JOB = 'REMOVE_FAVORITE_JOB';
+export const ADD_JOB = 'ADD_JOB';
+export const REMOVE_JOB = 'REMOVE_JOB';
 
 export const addFavoriteJob = (job) => ({
-  type: ADD_FAVORITE_JOB,
+  type: ADD_JOB,
   payload: job,
 });
 
-export const removeFavoriteJob = (jobId) => ({
-  type: REMOVE_FAVORITE_JOB,
-  payload: jobId,
+export const removeFavoriteJob = (job) => ({
+  type: REMOVE_JOB,
+  payload: job,
 });
