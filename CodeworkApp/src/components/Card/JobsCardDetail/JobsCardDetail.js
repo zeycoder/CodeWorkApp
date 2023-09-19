@@ -1,5 +1,5 @@
 import { Button, Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import HTMLView from 'react-native-htmlview';
 import styles from './JobsCardDetail.style';
 import Buttons from '../../Button/Button';
@@ -10,12 +10,19 @@ const JobsCardDetail = ({item}) => {
   // const insideIcon = useSelector(s=>s.insideIcon)
   const dispatch = useDispatch();
   const [isFavorite, setIsFavorite] = useState(false); // Favori durumu
+  const favoriteJobs = useSelector(state => state.favoriteJobList);
+
+  useEffect(() => {
+    // İş favori işler listesinde var mı kontrol et
+    const isJobFavorite = favoriteJobs.some(job => job.id === item.id);
+    setIsFavorite(isJobFavorite);
+  }, [favoriteJobs, item]);
 
   const handleFavoriteJob = () => {
     if (isFavorite) {
-      dispatch({ type: 'REMOVE_JOB', payload: { favoriteJob: item.id } });
+      dispatch({ type: 'REMOVE_JOB', payload: { favoriteJob: item } });
     } else {
-      dispatch({ type: 'ADD_JOB', payload: { favoriteJob: item.id } });
+      dispatch({ type: 'ADD_JOB', payload: { favoriteJob: item } });
       console.log(item)
       console.log(item.id)
 

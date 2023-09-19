@@ -6,7 +6,7 @@ const FavoriteJobs = () => {
   const favoriteJobsList = useSelector(s => s.favoriteJobList); 
   return (
     <View>
-      <FlatList  keyExtractor={item => item.id.toString()} data={favoriteJobsList} renderItem={({item})=><Text>{item.id}</Text>} />
+      <FlatList  keyExtractor={item => item.id} data={favoriteJobsList} renderItem={({item})=><Text>{item.id}</Text>} />
     </View>
   )
 }

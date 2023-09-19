@@ -4,7 +4,7 @@
                 console.log('aaaaa')
                 return {...state,favoriteJobList:[...state.favoriteJobList,action.payload.favoriteJob]}
             case 'REMOVE_JOB':
-                return {...state,favoriteJobList:[state.favoriteJobList.filter(job => job.id !== action.job.id)],}
+                return {...state,favoriteJobList: state.favoriteJobList.filter(job => job.id !== action.payload.favoriteJob.id),}
             default:
                 return state;
         }
