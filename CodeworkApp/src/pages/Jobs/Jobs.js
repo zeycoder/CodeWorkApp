@@ -12,7 +12,7 @@ const Jobs = ({navigation}) => {
   if(error){return<Error/>}
   console.log(datas.data.results)
   const handleJobsDetail = (item) => {navigation.navigate('JobsDetailScreen',{item:item});console.log(item.id);}
-  const handleJobs = ({item})=>(<JobsCard jobs={item} onPress={()=>handleJobsDetail(item)}/> )
+  const handleJobs = ({item})=>(<JobsCard item={item} onPress={()=>handleJobsDetail(item)}/> )
   
   return (<FlatList keyExtractor={item => item.id} data={datas.data.results} renderItem={handleJobs}/>)
 }
