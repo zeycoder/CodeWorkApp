@@ -7,6 +7,7 @@ const FavoriteJobsCard = ({item, onPress}) => {
   return (
     <View style={styles.container}>
       <JobsCard item={item} />
+      <Text>sldspk</Text>
       <Button title="Favorilerden Sil" onPress={onPress}/>
     </View>
   )
