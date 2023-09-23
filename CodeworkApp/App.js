@@ -24,9 +24,9 @@ export default function App() {
   return (
     <UserProvider>
       <NavigationContainer >
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
-          <Tab.Screen options={{tabBarLabel:'Jobs', tabBarIcon:()=>(<FontAwesome5 name='bookmark' size={22}/>)}} name="JobsNavigatorScreen" component={JobsNavigator} />
-          <Tab.Screen options={{tabBarLabel:'Favorites', tabBarIcon:()=>(<FontAwesome5 name='heart' size={22} />)}} name="FavoriteJobsScreen" component={FavoriteJobs} />
+        <Tab.Navigator screenOptions={{ headerShown: true }}>
+          <Tab.Screen options={{headerShown:false ,tabBarLabel:'Jobs', tabBarIcon:()=>(<FontAwesome5 name='bookmark' size={22}/>)}} name="JobsNavigatorScreen" component={JobsNavigator} />
+          <Tab.Screen options={{headerTitle:"Favorites", tabBarLabel:'Favorites', tabBarIcon:()=>(<FontAwesome5 name='heart' size={22} />)}} name="FavoriteJobsScreen" component={FavoriteJobs} />
         </Tab.Navigator>
       </NavigationContainer>
     </UserProvider>

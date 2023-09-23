@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableWithoutFeedback, View,Button } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback, View,Button, TouchableNativeFeedbackComponent, TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from './JobsCard.style'
 
@@ -12,7 +12,9 @@ const JobsCard = ({item, onPressCard, name, onPressButton }) => {
         <Text style={styles.level}>{item.levels[0].name} </Text>
         {
           name=='FavoriteJobsScreen'
-          ?<Button title="Favorilerden Sil" color='#ff6655' onPress={onPressButton}/>
+          ?<TouchableOpacity style={styles.button} title="Favorilerden Sil" onPress={onPressButton}>
+            <Text style={styles.buttonText}>Remove</Text>
+          </TouchableOpacity>
           :null
         }
         

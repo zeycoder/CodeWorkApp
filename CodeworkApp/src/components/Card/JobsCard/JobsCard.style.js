@@ -33,5 +33,15 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         margin:5,
       },
+      button:{
+        padding:10,
+        margin:5,
+        backgroundColor:'#ff6655',
+        alignItems:'center',
+        borderRadius:5
+      },
+      buttonText:{
+        color:'white'
+      }
 })
 export default styles;
