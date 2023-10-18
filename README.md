@@ -4,7 +4,7 @@
 
 `npm install`
 
-`expo start`
+`npx expo start`
 
 We display job postings thanks to the data we pull from the API. We can go to the detail page of these job postings and see the details of the job posting we want, and if we want, we can add it to our favorite job postings or go to the job posting site. On our favorite job posting page, we can see all our favorite job postings and we can delete those job postings if we wish. We keep your favorite jobs in global state (redux).
 
